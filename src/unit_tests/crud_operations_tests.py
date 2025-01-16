@@ -1,6 +1,5 @@
 import pytest
 from datetime import datetime
-from unittest.mock import AsyncMock
 from fastapi.testclient import TestClient
 
 from ..app import app
@@ -8,10 +7,6 @@ from src.schemas import CreateApplicationRequest, PaginationParams, CreateApplic
 from src.models import Application
 
 client = TestClient(app)
-
-@pytest.fixture
-def mock_db():
-    return AsyncMock()
 
 @pytest.mark.asyncio
 async def test_create_application_empty_description():
